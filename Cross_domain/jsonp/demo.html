@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = 'utf-8'>
+  <title>test</title>
+  <script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+<table>
+<thead>
+<tr>
+  <td>name</td>
+  <td>age</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td id="name"></td>
+  <td id="age"></td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">
+  var names=document.getElementById("name");
+  //不要使用name,因为window自带name变量，类型为“string”，不可改变其类型，也就是说，如果对其赋值，值必须为string类型，否则会自动调用值的toString方法，将值转换为string类型。
+  var  age=document.getElementById("age");
+  function dosomething(jsondata){
+    alert("name:"+jsondata.name+",age:"+jsondata.age);
+    age.innerHTML=jsondata.age;
+    names.innerHTML=jsondata.name;
+  }
+
+  $.getJSON("http://localhost:3000/?name=xiaobo&age=23"+"&callback=?",dosomething);
+  //原理即创建一个吧script标签如下注释部分
+</script>
+<!-- <script src="http://localhost:3000/?name=xiaobo&age=25&callback=dosomething"></script> -->
+</body>
+</html>

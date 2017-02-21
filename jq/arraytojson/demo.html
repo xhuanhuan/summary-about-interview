@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+</head>
+<body>
+  <script>
+  var arr={name:'xiaohuan',age:'23'};
+  $.fn.stringifyArray = function(array) {
+         return JSON.stringify(array)
+  }
+
+ $.fn.parseArray = function(array) {
+     return JSON.parse(array)
+ }
+var jsondata=$("").stringifyArray(arr);
+console.log(jsondata);
+console.log($("").parseArray(jsondata));
+  </script>
+</body>
+</html>

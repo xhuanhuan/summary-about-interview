@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>测试页面b</title>
+<style>
+   div{
+   	margin:10%;
+   }
+</style>
+</head>
+<body>
+
+	   <h1>这是测试页面B</h1>
+     <p>运行在http:localhost:8000</p>
+	   <form id='form1'>
+	     <input type='text' placeholder="输入想要发送给A页面的话" name='text'><input type='submit' value='发送'><br>
+	     <p id = 'response'></p>
+	   </form>
+
+   <script>
+   //message
+   window.addEventListener('message',function(event){
+   	document.getElementById('response').innerHTML = event.data;
+   })
+
+   document.getElementById('form1');
+   //postMessage
+   form1.onsubmit = function(event){
+      event.preventDefault();
+      parent.window.postMessage(event.target.text.value,'http://localhost:3000');
+   }
+   </script>
+</body>
+
+</html>
