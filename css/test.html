@@ -6,18 +6,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <style>
-p em:last-of-type{
-  color:blue;
-}
-p>strong:last-of-type{
-  color:blue;
-}
-.inline-test h5{
-  display:inline;
-}
-.inlineBlock-test h5{
-  display:inline-block;
-}
+
 </style>
 <body>
   <p>我是原始p<p>
@@ -41,8 +30,9 @@ p>strong:last-of-type{
 <div style="width:300px;height:200px;border:1px solid orange;">
 <div style="width:100px;height:50px;line-height:50px;text-align:center;background-color:orange;position:relative;top:50%;left:50%;margin:-25px 0 0 -50px;">浮动元素居中</div>
 </div>
+
 <div style="width:300px;height:300px;border:1px solid black;position:absolute;top:60%;left:60%;">
-<div style="width:100px;height:50px;line-height:50px;text-align:center;background-color:orange;position:absolute;top:0;bottom:0;right:0;left:0;">绝对定位居中</div>
+<div style="width:100px;height:50px;line-height:50px;text-align:center;background-color:orange;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">绝对定位居中</div>
 </div>
 <p>inline inline-block测试</p>
 <div class="inline-test">
@@ -59,5 +49,74 @@ p>strong:last-of-type{
 <div class="shadow">阴影+旋转</div>
 <h1 style="text-shadow:5px 5px 5px orange">文字阴影</h1>
 <div class="multiback">多重背景</div>
+
+<p>-------------品字布局----------------<p>
+<div style="width:300px;height:300px;display:flex;flex-wrap:wrap;">
+  <div style="width:100%;height:150px;background-color:red;"></div>
+  <div style="width:50%;height:150px;background-color:blue;"></div>
+  <div style="width:50%;height:150px;background-color:orange;"></div>
+</div>
+
+<p>-------------li标签之间的空隙----------------<p>
+<ul style='font-size:0'>
+  <li style="display:inline-block;background-color:red;font-size:14px;">呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃</li>
+  <li style="display:inline-block;background-color:red;font-size:14px;">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+  <li style="display:inline-block;background-color:red;font-size:14px;">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvsss</li>
+</ul>
+<ul style='letter-spacing: -8px'>
+  <li style="display:inline-block;background-color:red;letter-spacing: normal">呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃</li>
+  <li style="display:inline-block;background-color:red;letter-spacing: normal">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+  <li style="display:inline-block;background-color:red;letter-spacing: normal">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvsss</li>
+</ul>
+<ul style='display:flex;'>
+  <li style="display:inline-block;background-color:red;font-size:14px;">呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃</li>
+  <li style="display:inline-block;background-color:red;font-size:14px;">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+  <li style="display:inline-block;background-color:red;font-size:14px;">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvsss</li>
+</ul>
+
+<a href="#"><img width=100 height=100 src="3.png"></a>
+
+<input style="border:none" placeholder="i am a girl">
+<p>子元素的margin跑到了父元素上；解决办法是父元素设置padding,子元素不要margin</p>
+<div class="box1">
+     <div class="box1_1">box1_1</div>
+ </div>
+<div class="parent">
+  <p>qqqqqqqq<p>
+<div class="one"></div>
+<div class="one"></div>
+</div>
+<div style="width:100%;height:150px;"></div>
+<div class="parent1">
+  <div class="one1">One</div>
+  <div style="clear:both;"></div>
+   </div>
+
+<div id="box"></div>
+  <div style="clear:both;"></div>
+<p>containing block test </p>
+<div>
+<div class="div1">
+  <span>11111111111111111</span>
+  <span>11111111111111111</span>
+  <span>333333333333333333</span>
+  <span class="sp">vvvvvvvv</span>
+  <span>5555555555555</span>
+  <span>5555555555555</span>
+</div>
+</div>
+
+<p>collapse test</p>
+<table border="1">
+<tr>
+<td>Adams</td>
+<td>John</td>
+</tr>
+<tr class="coll">
+<td>Bush</td>
+<td>George</td>
+</tr>
+</table>
+<p>ssssssssss</p>
 </body>
 </html>

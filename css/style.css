@@ -1,4 +1,7 @@
-
+*{
+	margin:0;
+	padding:0;
+}
 .mydiv{
 	font-size:30px;
 	font-family: Verdana, sans-serif;
@@ -24,7 +27,7 @@
 	line-height:100px;
 	text-align:center;
 	box-shadow:5px 5px 5px #888888;
-	
+
 	transform: rotate(30deg);
 	-ms-transform: rotate(30deg);		/* IE 9 */
 	-webkit-transform: rotate(30deg);	/* Safari and Chrome */
@@ -37,3 +40,81 @@
 	border:1px solid black;
 	background-image:url(3.png),url(1.png);
 }
+
+p em:last-of-type{
+  color:blue;
+}
+p>strong:last-of-type{
+  color:blue;
+}
+.inline-test h5{
+  display:inline;
+}
+.inlineBlock-test h5{
+  display:inline-block;
+}
+.box1{
+  width:150px;
+  height:150px;
+  background:#CCC;
+}
+.box1_1{
+  height:50px;
+  margin-top:50px;
+  background:#AAA;
+}
+.one{
+  width:100px;
+  height:100px;
+  background-color: red;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.parent{
+  width:100px;
+  height:100px;
+  position:relative;
+  overflow:visible;
+}
+.parent1{
+           background:#888;
+           border:5px solid #888;
+           zoom:1;/*--for IE--*/
+       }
+
+       .one1{
+           float:left;
+           width:100px;
+           height:100px;
+           background:#F60;
+       }
+ #box{ float:left;
+    width:100px;
+    height:100px;
+    margin:0 0 0 100px;
+    background-color: orange;
+  }
+.div1{
+		/*width:200px;*/
+		position:relative;
+		/*top:500px;*/
+		margin:20px;
+		display:inline;
+		border:10px solid black;
+		padding:10px;
+		margin:40px;
+		overflow: hidden;
+	}
+
+.sp{
+		background-color: orange;
+		position:absolute;
+		bottom:0;
+		left:0;
+	}
+
+	tr.coll
+ {
+ visibility:collapse
+ }
