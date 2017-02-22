@@ -31,3 +31,7 @@ h3{
    @extend.box;
    margin-top: 10px;
  }
+
+tbody td{
+  visibility: collapse;
+}

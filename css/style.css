@@ -85,7 +85,7 @@ p>strong:last-of-type{
        }
 .parent2{
 					width:200px;
-					height:200px;
+					height:500px;
           background:#888;
 					margin:10px;
       }
@@ -123,5 +123,8 @@ p>strong:last-of-type{
 
 	tr.coll
  {
- visibility:collapse
+ visibility:collapse;
  }
+tr.hide{
+	visibility:hidden;
+}
