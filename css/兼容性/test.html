@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<style>
+
+</style>
+<body>
+ 
+<a href="#"><img width=100 height=100 src="3.png">a(有href属性)标签嵌套下的img标签，在IE下会带有边框。解决办法是加上a img{border:none;}样式。</a>
+
+<input style="border:none" placeholder="去掉input边框一般用border:none;就可以，但由于IE6在解析input样式时的BUG(优先级问题)，在IE6下无效。　解决
+  方案是用:border:0或border:0 none;或border:none:border-color:transparent;，推荐用第三种方案。">
+  
+
+<div class="box1">
+     <div class="box1_1">子元素的margin跑到了父元素上；解决办法是父元素设置padding,子元素不要margin</div>
+ </div>
+ 
+<div class="parent1">
+  <p>假设两块div，第一块浮动而第二块没有浮动，IE6下第二块就会跑到第一块边上，并且二者之间还留有间距，但标准浏览器中是第二块重合于第一块<p>
+<div class="one1"></div>
+<div style=" width:120px;height:120px;background:#F70;"></div>
+
+  <div style="clear:both;"></div>
+</div>
+
+<div class="parent1">
+  <div class="one1">子标签浮动导致父标签不再包裹子标签。解决方案是清除浮动。</div>
+  <div style="clear:both;"></div>
+   </div>
+
+
+</body>
+</html>

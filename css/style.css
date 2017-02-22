@@ -81,8 +81,14 @@ p>strong:last-of-type{
            background:#888;
            border:5px solid #888;
            zoom:1;/*--for IE--*/
+					 margin:10px;
        }
-
+.parent2{
+					width:200px;
+					height:200px;
+          background:#888;
+					margin:10px;
+      }
        .one1{
            float:left;
            width:100px;
@@ -98,11 +104,12 @@ p>strong:last-of-type{
 .div1{
 		/*width:200px;*/
 		position:relative;
+		height:300px;
 		/*top:500px;*/
 		margin:20px;
 		display:inline;
-		border:10px solid black;
-		padding:10px;
+		/*border:10px solid black;*/
+		padding:5px;
 		margin:40px;
 		overflow: hidden;
 	}

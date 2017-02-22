@@ -1,0 +1,26 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: blue; }
+
+h1 {
+  color: #AF80ED; }
+
+h3 {
+  color: #DE5E85; }
+
+.box p, .box2 p {
+  color: yellow; }
+
+.box, .box2 {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  width: 60%;
+  height: 100px;
+  background-color: pink; }
+
+.box2 {
+  margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */
