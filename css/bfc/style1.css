@@ -9,6 +9,7 @@
 }
 .newcontainer{
   background-color:green;
+    margin:20px;
   overflow:hidden;
 }
 
