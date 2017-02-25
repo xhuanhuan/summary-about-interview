@@ -56,31 +56,21 @@
 // // console.log(sum(2, 3).toString());
 // console.log(sum(2)(3,4,5)(5)());
 
+//6
 function sum(){
   return [].reduce.call(arguments,function(a,b){return a+b});
 }
 
-var curry=(function(){
-  var list=[];
-  var s=0;
-  var func;
+var curry=function(func){
+  var args=[].slice.call(arguments,1);
   function add(){
-
-    var t;
-
-    if(typeof(arguments[0])=="function"){
-      func=arguments[0];
-      t=[].slice.call(arguments,1);
-    }else{
-        t=[].slice.call(arguments);
-    }
-    list=list.concat(t);
-
     if(arguments.length==0){
-      return func.apply(this,list);
+      return func.apply(this,args);
+    }else{
+      args=args.concat([].slice.call(arguments));
     }
     return add;
   }
   return add;
-})();
+}
     console.log(curry(sum,1,2,3)(2,3)(4)())//16
