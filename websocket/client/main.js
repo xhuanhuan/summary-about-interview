@@ -5,6 +5,6 @@
     socket.emit('my other event', { hellow: 'xiaobo' });
   });
 
-  setTimeout(function(){
-    socket.emit('disconnect','hello')
-  },5000)
+  // setTimeout(function(){
+  //   socket.emit('disconnect','hello')
+  // },5000)
