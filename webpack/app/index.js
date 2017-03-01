@@ -1,19 +1,17 @@
-// import './part.html'
-// import './style.css'
-// var e1=require('./part.html');
-// function component1 () {
-//   var element = document.createElement('div');
-//   let arr=[1,2,3];
-//   element.innerHTML =  arr.map(item=>item*3).join(",")
-//   return element;
-// }
-// function component2 () {
-//   var element = document.createElement('div');
-//   element.innerHTML = e1;
-//   return element;
-// }
-// document.body.appendChild(component1());
-// document.body.appendChild(component2());
+//用纯js实现react
+
+//1,抽象出一个类，需要包含公用的方法 constructor,setState,renderDOM,
+// constructor获取传入的属性；
+//setState设置当前状态，触发重新渲染，调用状态改变函数 onStateChage （插入新节点，移除旧结点）.
+//renderDOM 渲染结点(获取子类的render())，绑定事件监听函数
+
+//2.定义组件，通过集成抽象类来构建
+//需包括 constructor，onClick，render方法；
+//constructor:首先super()获取父类的this，然后可以获取props，设置自己的 state
+//onClick:改变state，调用父类的setState实现
+//render: 返回自定义结点
+
+//额外的 mount 的方法，其实就是把组件的 DOM 元素插入页面，并且绑定onStateChage,使 setState 的时候更新页面：
 
 const createDOMFromString = (domString) => {
     const div = document.createElement('div');
@@ -31,8 +29,6 @@ class Component{
       this.el=this.renderDOM();
       this.onStateChage(oldel,this.el);
   }
-
-
   renderDOM(){
     this.el=createDOMFromString(this.render());
     this.el.addEventListener('click', this.onClick.bind(this), false);
@@ -40,7 +36,7 @@ class Component{
   }
 }
 
-const mont=function(wrapper,elm){
+const mont=(wrapper,elm)=>{
   wrapper.appendChild(elm.renderDOM());
   elm.onStateChage=(oldEl,newEl)=>{
     wrapper.insertBefore(newEl, oldEl);
@@ -69,10 +65,12 @@ class likeButton extends Component{
 }
 
 
-class colorButton extends Component{
-  constructor(){
+
+class hellow extends Component{
+  constructor(props){
     super();
-    this.state={color:'blue'}
+    this.props=props
+      this.state={color:'blue'}
   }
   onClick(){
     this.setState({
@@ -80,17 +78,13 @@ class colorButton extends Component{
     })
   }
   render(){
-    return `<button style='color:${this.state.color}'>点我改变颜色</button>`
+      return `<button style='color:${this.state.color}'>${this.props.word}</button>`
   }
 }
 
-
-
 const element = document.querySelector('.container');
 mont(element,new likeButton());
-mont(element,new colorButton());
-
-
+mont(element,new hellow({word:'hellow'}));
 
 // const target=document.querySelector('.like-btn');
 // const target1=document.querySelector('.like-text');
