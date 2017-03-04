@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="AJAX.js"></script>
+</head>
+<body>
+
+<!-- <div id="myDiv"></div>
+<button type="button" onclick="loadXMLDoc()">获取数据</button> -->
+
+<form>
+<label>姓名</label><input id="name" name="name">
+<label>年齡</label><input id="age" name="age">
+</form>
+<button id="btn1">GET</button>
+<button id="btn2">POST</button>
+
+<div id="myDiv"></div>
+
+</body>
+
+<script>
+;(function(){
+  var btn1=document.getElementById('btn1');
+  var btn2=document.getElementById('btn2');
+  var name=document.getElementById('name');
+  var age=document.getElementById('age');
+
+  btn1.onclick=function(){
+    var data={
+      'name':name.value,
+      'age':age.value
+    };
+    var ajax=new AJAX({
+      method:"GET",
+      url:"http://localhost:3000/",
+      callback:function(res){
+         document.getElementById('myDiv').innerHTML=res;
+      },
+      data:data
+    });
+    ajax.send();
+  }
+
+  btn2.onclick=function(){
+    var data={
+      'name':name.value,
+      'age':age.value
+    };
+    var ajax=new AJAX({
+      method:"POST",
+      url:"http://localhost:3000/",
+      callback:function(res){
+       document.getElementById('myDiv').innerHTML=res;
+      },
+      data:data
+    });
+    ajax.send();
+  }
+
+})();
+
+
+
+
+
+function loadXMLDoc(){
+var ajax=new AJAX({
+  method:"GET",
+  url:"http://localhost:3000/",
+  callback:function(res){
+    document.getElementById("myDiv").innerHTML=res;
+  },
+  data:{name:"xiaohuan",age:"23"}
+});
+ajax.send();
+}
+// function loadXMLDoc()
+// {
+// 	var xmlhttp;
+// 	if (window.XMLHttpRequest)
+// 	{
+// 		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+// 		xmlhttp=new XMLHttpRequest();
+// 	}
+// 	else
+// 	{
+// 		// IE6, IE5 浏览器执行代码
+// 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+// 	}
+// 	xmlhttp.onreadystatechange=function()
+// 	{
+// 		if (xmlhttp.status>=200&&xmlhttp.status<300||xmlhttp.status==304)
+// 		{
+//      document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+//    }
+// 	}
+//   // var data=JSON.stringify({name:"xiaohuan"});
+// 	xmlhttp.open("GET","http://localhost:3000/",true);
+//   // xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// 	xmlhttp.send();
+// }
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>�¼�ί��test</title>
+</head>
+<body>
+
+<ul id="todo-app">
+  <li class="item">Walk the dog</li>
+  <li class="item">Pay bills</li>
+  <li class="item">Make dinner</li>
+  <li class="item">Code for one hour</li>
+</ul>
+
+<script>
+//每一个li都绑定一个click函数
+ var app=document.getElementById('todo-app');
+ /*var Items=app.getElementsByClassName('item');
+ for(let item of Items){
+   item.addEventListener('click',function(){
+     console.log(item.innerHTML);
+   });
+ }*/
+
+//只外部容器绑定一个click函数
+app.addEventListener('click',function(e){
+  if(e.target&&e.target.nodeName==='LI'){
+  alert(e.target.innerHTML);
+  }
+});
+</script>
+</body>
+</html>

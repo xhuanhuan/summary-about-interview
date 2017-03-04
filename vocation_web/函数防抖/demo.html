@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>�¼�ί��test</title>
+</head>
+<body>
+
+<div id="container" style="width:200px;height:500px;border:1px solid black;overflow:auto">
+  <div  style="width:100%;height:2000px;background-color:yellow;">
+
+  </div>
+</div>
+
+<script>
+function foo(){
+  console.log(1);
+}
+
+// debounce函数用来包裹我们的事件
+function debounce(fn, delay) {
+  // 持久化一个timer
+  let timer = null;
+  // 闭包可以获取到timer
+  return function() {
+    console.log(111);
+    // 通过函数获取到作用域和参数列表
+    // 通过 'this' 和 'arguments'
+    // let context = this;
+    // let args = arguments;
+    // // 如果事件被触发，清除timer并重新开始计时
+    // clearTimeout(timer);
+    // timer = setTimeout(function() {
+    //   fn.apply(context, args);
+    // }, delay);
+  }
+}
+
+function throttle(fn, threshhold, scope) {
+  threshhold || (threshhold = 250);
+  var last,
+      deferTimer;
+  return function () {
+    var context = scope || this;
+    var now = +new Date,
+        args = arguments;
+        
+    if (last && now < last + threshhold) {
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(function () {
+        last = now;
+        fn.apply(context, args);
+      }, threshhold);
+    } else {
+      last = now;
+      fn.apply(context, args);
+    }
+  };
+}
+
+
+let elem = document.getElementById('container');
+// elem.addEventListener('scroll', debounce(foo,2000));
+elem.addEventListener('scroll', throttle(foo,1000));
+</script>
+</body>
+</html>

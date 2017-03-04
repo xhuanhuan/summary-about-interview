@@ -1,5 +1,6 @@
 var a=10;
 function test(){
+  var s=
   console.log(a)
   console.log(arguments.callee);
 }
