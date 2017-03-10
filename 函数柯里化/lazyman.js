@@ -7,12 +7,10 @@
 function lzm(name){
   this.task=[];
   var that=this;
-  var fun=(function(name){
-    return function(){
+  var fun=function(){
       console.log("hi "+name);
       that.next();
     }
-  })(name);
   this.task.push(fun);
    setTimeout(this.next.bind(this),0);
 }
@@ -24,12 +22,10 @@ lzm.prototype.next=function(){
 
 lzm.prototype.eat=function(dinner){
   var that=this;
-var fun=(function(dinner){
-  return function(){
+var fun=function(){
     console.log("eat "+dinner);
     that.next();
   }
-})(dinner);
 
 this.task.push(fun);
 return this;
@@ -37,12 +33,11 @@ return this;
 
 lzm.prototype.drink=function(drinking){
   var that=this;
-  var fun=(function(drinking){
-    return function(){
+  var fun= function(){
       console.log("drink "+drinking);
       that.next();
-    }
-  })(drinking);
+    };
+  
   this.task.push(fun);
   return this;
 }
@@ -50,21 +45,19 @@ lzm.prototype.drink=function(drinking){
 
 lzm.prototype.sleep=function(time){
       var that=this;
-  var fun=(function(time){
-    return function(){
+  var fun=function(){
       setTimeout(function(){ console.log("sleep "+time+'s');that.next();},time*1000);
     }
-  })(time);
+
   this.task.push(fun);
   return this;
 }
   lzm.prototype.sleepFirst=function(time){
           var that=this;
-    var fun=(function(time){
-      return function(){
+    var fun=function(){
         setTimeout(function(){console.log("sleep "+time+'s');that.next();},time*1000);
       }
-    })(time);
+
 
   this.task.unshift(fun);
   return this;
@@ -74,4 +67,4 @@ lzm.prototype.sleep=function(time){
 function lazyman(name){
   return new lzm(name);
 }
-lazyman("xhuanhuan").drink("milk").sleepFirst(4).eat("chicken");
+lazyman("xhuanhuan").drink("milk").drink("egg").sleep(4).eat("chicken");
