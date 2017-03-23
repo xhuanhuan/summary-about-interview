@@ -6,7 +6,7 @@ function Fn(n){
     return Fn(n-1)+Fn(n-2);
   }
 }
-console.log(Fn(6))//8
+console.log(Fn(22))//8
 console.log(Fn(8))//21
 
 //迭代
@@ -24,4 +24,4 @@ for(var i=2;i<=n;i++){
 }
 return sum;
 }
-console.log(f(6));
+console.log(f(22));
